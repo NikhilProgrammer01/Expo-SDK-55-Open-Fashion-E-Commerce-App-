@@ -65,7 +65,8 @@ export default function ShopIndex() {
         <View style={styles.heroContainer}>
           <Image source={IMAGES.hero} style={styles.heroImage} contentFit="cover" />
           <LinearGradient
-            colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.5)', 'rgba(0,0,0,0.2)']}
+            colors={['rgba(0,0,0,0.55)', 'rgba(0,0,0,0.0)', 'rgba(0,0,0,0.5)', 'rgba(0,0,0,0.2)']}
+            locations={[0, 0.35, 0.65, 1]}
             style={styles.heroOverlay}
           >
             <Text style={styles.heroTitle}>
@@ -197,8 +198,13 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
   heroContainer: { width, height: 720 },
   heroImage: { width: '100%', height: '100%' },
-  heroOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.05)', justifyContent: 'center', paddingHorizontal: 30, alignItems: 'center', marginTop: 60 },
-  heroTitle: { fontFamily: 'Bodoni-BoldItalic', fontSize: 40, fontWeight: '300', color: '#ffff', letterSpacing: -1, fontStyle: 'italic', textTransform: 'uppercase', textShadowColor: 'rgba(0, 0, 0, 0.4)', textShadowOffset: { width: 0, height: 2 }, textShadowRadius: 10 },
+heroOverlay: { 
+  ...StyleSheet.absoluteFillObject, 
+  justifyContent: 'center', 
+  paddingHorizontal: 30, 
+  alignItems: 'center', 
+  // ← remove marginTop: 60 entirely
+},  heroTitle: { fontFamily: 'Bodoni-BoldItalic', fontSize: 40, fontWeight: '300', color: '#ffff', letterSpacing: -1, fontStyle: 'italic', textTransform: 'uppercase', textShadowColor: 'rgba(0, 0, 0, 0.4)', textShadowOffset: { width: 0, height: 2 }, textShadowRadius: 10 },
   glassButtonWrapper: { marginTop: 40, borderRadius: 30, overflow: 'hidden', borderColor: 'rgba(255,255,255,0.3)' },
   heroButton: { paddingVertical: 18, paddingHorizontal: 30, backgroundColor: 'rgba(255,255,255,0.2)' },
   heroButtonText: { color: '#fff', fontSize: 14, letterSpacing: 3, fontWeight: '300' },
