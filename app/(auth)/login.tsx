@@ -1,10 +1,11 @@
-import React, { useCallback } from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Platform } from 'react-native';
-import * as WebBrowser from 'expo-web-browser';
+//app/(auth)/login.tsx
 import { useOAuth } from '@clerk/clerk-expo';
-import { useRouter } from 'expo-router';
-import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+import * as WebBrowser from 'expo-web-browser';
+import React, { useCallback } from 'react';
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Clerk recommendation for faster browser warming
 WebBrowser.maybeCompleteAuthSession();

@@ -1,6 +1,7 @@
+//app/_layout.tsx
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo';
 import { tokenCache } from '@/services/cache'; // Using our cache service
+import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';

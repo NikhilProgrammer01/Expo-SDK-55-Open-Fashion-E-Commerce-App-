@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Image } from 'expo-image';
-import { IMAGES } from '@/constants/images';
+//app/(shop)/blog/[id].tsx
 import AppHeader from '@/components/common/AppHeader';
 import BrandFooter from '@/components/common/BrandFooter';
+import { IMAGES } from '@/constants/images';
+import { Image } from 'expo-image';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Dimensions, NativeScrollEvent, NativeSyntheticEvent, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
 const CAROUSEL_ITEM_WIDTH = width - 40;

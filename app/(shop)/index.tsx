@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import { ScrollView, View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
-import { Image } from 'expo-image';
-import { FlashList } from '@shopify/flash-list';
-import { IMAGES } from '@/constants/images';
-import HomeHeader from '@/components/home/HomeHeader';
-import { BlurView } from 'expo-blur';
-import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useFonts, BodoniModa_700Bold_Italic } from '@expo-google-fonts/bodoni-moda';
-import * as SplashScreen from 'expo-splash-screen';
+//app/(shop)/index.tsx
 import BrandFooter from '@/components/common/BrandFooter';
+import HomeHeader from '@/components/home/HomeHeader';
+import { IMAGES } from '@/constants/images';
+import { BodoniModa_700Bold_Italic, useFonts } from '@expo-google-fonts/bodoni-moda';
+import { FlashList } from '@shopify/flash-list';
+import { BlurView } from 'expo-blur';
+import { Image } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
+import * as SplashScreen from 'expo-splash-screen';
+import React, { useEffect } from 'react';
+import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 const { width } = Dimensions.get('window');
 
 interface Product {
