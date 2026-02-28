@@ -65,8 +65,7 @@ export default function ShopIndex() {
         <View style={styles.heroContainer}>
           <Image source={IMAGES.hero} style={styles.heroImage} contentFit="cover" />
           <LinearGradient
-            colors={['rgba(0,0,0,0.55)', 'rgba(0,0,0,0.0)', 'rgba(0,0,0,0.5)', 'rgba(0,0,0,0.2)']}
-            locations={[0, 0.35, 0.65, 1]}
+            colors={['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.5)', 'rgba(0,0,0,0.2)']}
             style={styles.heroOverlay}
           >
             <Text style={styles.heroTitle}>
@@ -98,22 +97,20 @@ export default function ShopIndex() {
             ))}
           </ScrollView>
 
-          <View style={{ height: 640, width }}>
-            <FlashList<Product>
-              data={PRODUCTS}
-              numColumns={2}
-              scrollEnabled={false}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                // FIX: Wrapped in Pressable → navigates to product detail
-                <Pressable style={styles.productCard} onPress={() => goToProduct(item.id)}>
-                  <Image source={item.img} style={styles.productImage} transition={500} />
-                  <Text style={styles.productTitle} numberOfLines={2}>{item.title}</Text>
-                  <Text style={styles.productPrice}>{item.price}</Text>
-                </Pressable>
-              )}
-            />
-          </View>
+          {/* Replace the entire productsGrid View + FlashList with this */}
+<View style={styles.productsGrid}>
+  {PRODUCTS.map((item) => (
+    <Pressable 
+      key={item.id}
+      style={styles.productCard} 
+      onPress={() => goToProduct(item.id)}
+    >
+      <Image source={item.img} style={styles.productImage} transition={500} />
+      <Text style={styles.productTitle} numberOfLines={2}>{item.title}</Text>
+      <Text style={styles.productPrice}>{item.price}</Text>
+    </Pressable>
+  ))}
+</View>
 
           <TouchableOpacity style={styles.exploreMore}>
             <Text style={styles.exploreText}>Explore More →</Text>
@@ -198,13 +195,8 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
   heroContainer: { width, height: 720 },
   heroImage: { width: '100%', height: '100%' },
-heroOverlay: { 
-  ...StyleSheet.absoluteFillObject, 
-  justifyContent: 'center', 
-  paddingHorizontal: 30, 
-  alignItems: 'center', 
-  // ← remove marginTop: 60 entirely
-},  heroTitle: { fontFamily: 'Bodoni-BoldItalic', fontSize: 40, fontWeight: '300', color: '#ffff', letterSpacing: -1, fontStyle: 'italic', textTransform: 'uppercase', textShadowColor: 'rgba(0, 0, 0, 0.4)', textShadowOffset: { width: 0, height: 2 }, textShadowRadius: 10 },
+  heroOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.05)', justifyContent: 'center', paddingHorizontal: 30, alignItems: 'center', marginTop: 60 },
+  heroTitle: { fontFamily: 'Bodoni-BoldItalic', fontSize: 40, fontWeight: '300', color: '#ffff', letterSpacing: -1, fontStyle: 'italic', textTransform: 'uppercase', textShadowColor: 'rgba(0, 0, 0, 0.4)', textShadowOffset: { width: 0, height: 2 }, textShadowRadius: 10 },
   glassButtonWrapper: { marginTop: 40, borderRadius: 30, overflow: 'hidden', borderColor: 'rgba(255,255,255,0.3)' },
   heroButton: { paddingVertical: 18, paddingHorizontal: 30, backgroundColor: 'rgba(255,255,255,0.2)' },
   heroButtonText: { color: '#fff', fontSize: 14, letterSpacing: 3, fontWeight: '300' },
@@ -216,7 +208,16 @@ heroOverlay: {
   catText: { fontSize: 14, color: '#999', letterSpacing: 1 },
   catTextActive: { color: '#000', fontWeight: '500' },
   activeDot: { width: 4, height: 4, backgroundColor: '#dd8560', borderRadius: 2, marginTop: 4 },
-  productCard: { width: width / 2 - 20, marginHorizontal: 10, marginBottom: 20 },
+  productsGrid: {
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  paddingHorizontal: 16,
+  gap: 12,           // ← React Native 0.71+ supports gap in flex layouts
+},
+productCard: {
+  width: (width - 32 - 12) / 2,   // 32 = 16*2 outer, 12 = gap
+  marginBottom: 4,
+},
   productImage: { width: '100%', height: 220 },
   productTitle: { fontSize: 12, marginTop: 12, color: '#333', textAlign: 'center', lineHeight: 18 },
   productPrice: { fontSize: 14, color: '#dd8560', fontWeight: '400', marginTop: 6, textAlign: 'center' },

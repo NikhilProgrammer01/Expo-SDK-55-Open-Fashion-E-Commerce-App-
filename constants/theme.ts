@@ -1,53 +1,56 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-import { Platform } from 'react-native';
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+// constants/theme.ts
 
 export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
+  accent: '#dd8560',
+  black: '#111111',
+  white: '#ffffff',
+  offWhite: '#F7F5F2',
+  cardBg: '#F5F3F0',
+
+  // Text
+  textPrimary: '#222222',
+  textSecondary: '#555555',
+  textMuted: '#999999',
+  textLight: '#bbbbbb',
+
+  // Borders
+  borderLight: '#F0F0F0',
+  borderMedium: '#E5E5E5',
+  borderStrong: '#DEDEDE',
+
+  // UI
+  separator: '#F2F2F2',
+  inputBg: '#F2F2F2',
+  chipBg: '#FAFAFA',
 };
 
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-  },
-});
+export const Spacing = {
+  xs: 4,
+  sm: 8,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 48,
+};
+
+export const Typography = {
+  // Labels / tags
+  label: { fontSize: 11, letterSpacing: 1.5, fontWeight: '400' as const },
+  // Body
+  bodySmall: { fontSize: 12, fontWeight: '300' as const, lineHeight: 18 },
+  body: { fontSize: 14, fontWeight: '300' as const, lineHeight: 20 },
+  bodyMedium: { fontSize: 14, fontWeight: '400' as const },
+  // Headings
+  sectionTitle: { fontSize: 18, letterSpacing: 6, fontWeight: '400' as const, textTransform: 'uppercase' as const },
+  navTitle: { fontSize: 13, letterSpacing: 3, fontWeight: '500' as const, textTransform: 'uppercase' as const },
+  // Price
+  price: { fontSize: 14, color: '#dd8560', fontWeight: '400' as const },
+};
+
+export const Radius = {
+  sm: 4,
+  md: 8,
+  lg: 12,
+  pill: 20,
+  circle: 999,
+};

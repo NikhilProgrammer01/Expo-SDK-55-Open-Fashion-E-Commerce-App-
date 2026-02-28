@@ -1,14 +1,8 @@
 // app/(shop)/_layout.tsx
-import { useAuth } from '@clerk/clerk-expo';
-import { Redirect, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
 
+// No redirect logic here — Stack.Protected in root _layout.tsx
+// handles redirecting non-signed-in users away from shop screens
 export default function ShopLayout() {
-  const { isSignedIn } = useAuth();
-
-  // If user is not signed in, force them to login
-  if (!isSignedIn) {
-    return <Redirect href="/(auth)/login" />;
-  }
-
   return <Stack screenOptions={{ headerShown: false }} />;
 }

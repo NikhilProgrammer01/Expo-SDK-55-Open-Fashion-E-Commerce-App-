@@ -209,9 +209,11 @@ export default function DrawerMenu({ visible, onClose }: DrawerMenuProps) {
               key={item.label}
               label={item.label}
               sub={item.sub}
-              onSubPress={() => {
-                onClose();
-              }}
+              onSubPress={(sub) => {
+  onClose();
+  const slug = sub.toLowerCase().replace(/\//g, '-').replace(/\s+/g, '-');
+  router.push({ pathname: '/category/[slug]', params: { slug, tab: activeTab } });
+}}
             />
           ))}
 
